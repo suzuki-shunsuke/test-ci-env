@@ -1,0 +1,10 @@
+---
+kind: pipeline
+name: shell scripts
+clone:
+  depth: 1
+steps:
+  - name: print env
+    image: alpine:3.12.0
+    commands:
+      - env | grep "^DRONE" | grep -v "TOKEN"
