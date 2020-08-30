@@ -6,3 +6,8 @@ phases:
   build:
     commands:
       - env | grep "^CODEBUILD" | grep -v "TOKEN"
+      - git config --list
+      - git branch
+      - git status
+      - git remote -v
+      - git log -n 5 --pretty=oneline
