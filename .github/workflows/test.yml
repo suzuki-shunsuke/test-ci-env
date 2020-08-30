@@ -1,0 +1,17 @@
+---
+name: CI
+on: [push,pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: print built-in environment variables
+      run: env | grep "^GITHUB" | grep -v "TOKEN"
+    - name: print git config
+      run: |
+        git config --list
+        git branch
+        git status
+        git remote -v
+        git log -n 5 --pretty=oneline

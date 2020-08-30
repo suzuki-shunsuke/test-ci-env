@@ -1,0 +1,13 @@
+version: 2.1
+workflows:
+  build:
+    jobs:
+      - hello
+jobs:
+  hello:
+    docker:
+      - image: alpine:3.12.0
+    steps:
+      - run:
+          name: print env
+          command: env | grep "^CIRCLE" | grep -v "TOKEN"
