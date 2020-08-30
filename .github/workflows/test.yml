@@ -5,8 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        env | grep "^GITHUB" | grep -v "TOKEN"
+    - uses: actions/checkout@v2
+    - name: print built-in environment variables
+      run: env | grep "^GITHUB" | grep -v "TOKEN"
+    - name: print git config
+      run: |
         git config --list
         git branch
         git status
