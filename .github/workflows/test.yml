@@ -5,4 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: env | grep "^GITHUB" | grep -v "TOKEN"
+    - run: |
+        env | grep "^GITHUB" | grep -v "TOKEN"
+        git config --list
+        git branch
+        git status
+        git remote -v
+        git log -n 5 --pretty=oneline

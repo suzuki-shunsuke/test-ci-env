@@ -8,3 +8,11 @@ steps:
     image: alpine:3.12.0
     commands:
       - env | grep "^DRONE" | grep -v "TOKEN"
+  - name: git
+    image: plugins/git
+    commands:
+      - git config --list
+      - git branch
+      - git status
+      - git remote -v
+      - git log -n 5 --pretty=oneline
